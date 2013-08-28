@@ -22,6 +22,7 @@ include ApplicationCookbook::ResourceBase
 
 attribute :application_server_role, :kind_of => [String, Symbol, NilClass], :default => nil
 attribute :template, :kind_of => [String, NilClass], :default => nil
+attribute :hosts, :kind_of => Array, :default => nil
 attribute :server_name, :kind_of => [String, Array], :default => node['fqdn']
 attribute :port, :kind_of => Integer, :default => 80
 attribute :application_port, :kind_of => Integer, :default => 8000

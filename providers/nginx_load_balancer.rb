@@ -42,8 +42,13 @@ action :before_deploy do
     owner "root"
     group "root"
     mode "644"
+    if new_resource.hosts.nil?
+      hosts = new_resource.find_matching_role(new_resource.application_server_role, false)
+    else
+      hosts = new_resource.hosts
+    end
     variables(:resource => new_resource,
-              :hosts => new_resource.find_matching_role(new_resource.application_server_role, false),
+              :hosts => hosts,
               :application_socket => Array(new_resource.application_socket)
              )
     notifies :reload, resources(:service => 'nginx')

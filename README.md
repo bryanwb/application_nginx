@@ -32,6 +32,7 @@ Note that the application repository will still be checked out even if this is t
 - application\_server\_role: the role to search for when looking for application servers. Defaults to "#{application name}\_application\_server"
 - template: the name of template that will be rendered to create the context file; if specified it will be looked up in the application cookbook. Defaults to "load_balancer.conf.erb" from this cookbook
 - server\_name: the virtual host name(s). Defaults to the node FQDN
+- hosts: array of node objects, useful if you want to avoid using search
 - port: the port nginx will bind. Defaults to 80
 - application_port: the port the application server runs on. Defaults to 8000
 - static_files: a Hash mapping URLs to files. Defaults to an empty Hash
